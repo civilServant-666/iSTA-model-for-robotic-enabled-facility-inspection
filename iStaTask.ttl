@@ -1,0 +1,444 @@
+@prefix : <http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix istaa: <http://www.semanticweb.org/user/ontologies/2022/5/iStaAgent#> .
+@prefix cora-bare: <http://purl.org/ieee1872-owl/cora-bare#> .
+
+<http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#> a owl:Ontology .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/ieee1872-owl/cora-bare#isPlacedAt
+
+cora-bare:isPlacedAt a owl:ObjectProperty ;
+	rdfs:domain cora-bare:Robot ;
+	rdfs:range :fmListOfCoor .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasActivities
+
+:hasActivities a owl:ObjectProperty ;
+	rdfs:domain :fmTasFireResist , :fmTasInWallDefect , :fmTasLightInspect ;
+	rdfs:range :fmActAsignRobot .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasAgent
+
+:hasAgent a owl:ObjectProperty ;
+	rdfs:domain :fmTasFireResist .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasBtweenPnts
+
+:hasBtweenPnts a owl:ObjectProperty ;
+	rdfs:domain :fmTrajSection ;
+	rdfs:range :fmListOfCoor .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasConcurAction
+
+:hasConcurAction a owl:ObjectProperty ;
+	rdfs:domain :fmActNavigation , :fmActTakePhoto ;
+	rdfs:range :ahActAdjCamera , :ahActAvoidCollide , :ahActAvoidObstacle , :ahActOpenDoor .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasCoor
+
+:hasCoor a owl:ObjectProperty ;
+	rdfs:domain :fmListOfIfcEle ;
+	rdfs:range :fmListOfCoor .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasDirection
+
+:hasDirection a owl:ObjectProperty ;
+	rdfs:domain :fmListOfIfcEle ;
+	rdfs:range :fmListOfDir .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasEndPnt
+
+:hasEndPnt a owl:ObjectProperty ;
+	rdfs:domain :fmTrajSection ;
+	rdfs:range :fmListOfCoor .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasFoundEle
+
+:hasFoundEle a owl:ObjectProperty ;
+	rdfs:domain :fmActSearIfcFire , :fmActSearIfcLight , :fmActSearIfcWall ;
+	rdfs:range :fmListOfIfcEle .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasInitialPnt
+
+:hasInitialPnt a owl:ObjectProperty ;
+	rdfs:domain :fmActPathPlanA , :fmActPathPlanB ;
+	rdfs:range :fmListOfCoor .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasNextTraj
+
+:hasNextTraj a owl:ObjectProperty ;
+	rdfs:domain :fmTrajSection ;
+	rdfs:range :fmTrajSection .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasPathWayDir
+
+:hasPathWayDir a owl:ObjectProperty ;
+	rdfs:domain :fmActPathPlanA , :fmActPathPlanB ;
+	rdfs:range :fmListOfDir .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasPathWayPnt
+
+:hasPathWayPnt a owl:ObjectProperty ;
+	rdfs:domain :fmActPathPlanA , :fmActPathPlanB ;
+	rdfs:range :fmListOfCoor .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasSearchScope
+
+:hasSearchScope a owl:ObjectProperty ;
+	rdfs:domain :fmActSearIfcFire , :fmActSearIfcLight , :fmActSearIfcWall ;
+	rdfs:range :fmSpace .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasSpaceScope
+
+:hasSpaceScope a owl:ObjectProperty ;
+	rdfs:domain :fmTasFireResist , :fmTasInWallDefect , :fmTasLightInspect ;
+	rdfs:range :fmSpace .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasStartPnt
+
+:hasStartPnt a owl:ObjectProperty ;
+	rdfs:domain :fmTrajSection ;
+	rdfs:range :fmListOfCoor .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasTrajectory
+
+:hasTrajectory a owl:ObjectProperty ;
+	rdfs:domain :fmActPathPlanA ;
+	rdfs:range :fmTrajSection .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#isAssignedTo
+
+:isAssignedTo a owl:ObjectProperty ;
+	rdfs:domain :fmActAsignRobot .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#isConstrainedBy
+
+:isConstrainedBy a owl:ObjectProperty ;
+	rdfs:domain :fmActAsignRobot ;
+	rdfs:range :fmSensor , :fmSpace .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#isFollowedBy
+
+:isFollowedBy a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :fmActAsignRobot , :fmActNavigation , :fmActPathPlanA , :fmActPathPlanB , :fmActSearIfcFire , :fmActSearIfcLight , :fmActSearIfcWall , :fmActTakePhoto ;
+	rdfs:range :fmActNavigation , :fmActPathPlanA , :fmActPathPlanB , :fmActSearIfcFire , :fmActSearIfcLight , :fmActSearIfcWall , :fmActStartRecord , :fmActStopRecord , :fmActTakePhoto .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#isToNavi
+
+:isToNavi a owl:ObjectProperty ;
+	rdfs:domain :fmActNavigation ;
+	rdfs:range :fmTrajSection .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#needSensors
+
+:needSensors a owl:ObjectProperty ;
+	rdfs:domain :fmTasFireResist , :fmTasInWallDefect , :fmTasLightInspect ;
+	rdfs:range :fmSensor .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasEndTime
+
+:hasEndTime a owl:DatatypeProperty ;
+	rdfs:domain :fmActNavigation , :fmTasFireResist , :fmTasInWallDefect , :fmTasLightInspect ;
+	rdfs:range xsd:dateTime .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasListContent
+
+:hasListContent a owl:DatatypeProperty ;
+	rdfs:domain :fmListOfCoor , :fmListOfDir , :fmListOfIfcEle ;
+	rdfs:range xsd:string .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasSafDist
+
+:hasSafDist a owl:DatatypeProperty ;
+	rdfs:domain :fmTasFireResist , :fmTasInWallDefect , :fmTasLightInspect ;
+	rdfs:range xsd:double .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasStartTime
+
+:hasStartTime a owl:DatatypeProperty ;
+	rdfs:domain :fmActNavigation , :fmTasFireResist , :fmTasInWallDefect , :fmTasLightInspect ;
+	rdfs:range xsd:dateTime .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#hasTasID
+
+:hasTasID a owl:DatatypeProperty ;
+	rdfs:subPropertyOf owl:topDataProperty ;
+	rdfs:domain :fmTasFireResist , :fmTasInWallDefect , :fmTasLightInspect ;
+	rdfs:range xsd:string .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#ifBack
+
+:ifBack a owl:DatatypeProperty ;
+	rdfs:domain :fmTrajSection ;
+	rdfs:range xsd:boolean .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#ifFinish
+
+:ifFinish a owl:DatatypeProperty ;
+	rdfs:domain :fmTrajSection ;
+	rdfs:range xsd:boolean .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/ieee1872-owl/cora-bare#Robot
+
+cora-bare:Robot a owl:Class .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#adhocAction
+
+:adhocAction a owl:Class .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#ahActAdjCamera
+
+:ahActAdjCamera a owl:Class ;
+	rdfs:subClassOf :adhocAction .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#ahActAvoidCollide
+
+:ahActAvoidCollide a owl:Class ;
+	rdfs:subClassOf :adhocAction .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#ahActAvoidObstacle
+
+:ahActAvoidObstacle a owl:Class ;
+	rdfs:subClassOf :adhocAction .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#ahActOpenDoor
+
+:ahActOpenDoor a owl:Class ;
+	rdfs:subClassOf :adhocAction .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActAsignRobot
+
+:fmActAsignRobot a owl:Class ;
+	rdfs:subClassOf :fmActivity .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActNavigation
+
+:fmActNavigation a owl:Class ;
+	rdfs:subClassOf :fmActivity .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActPathPlanA
+
+:fmActPathPlanA a owl:Class ;
+	rdfs:subClassOf :fmActivity .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActPathPlanB
+
+:fmActPathPlanB a owl:Class ;
+	rdfs:subClassOf :fmActivity .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActSearIfcFire
+
+:fmActSearIfcFire a owl:Class ;
+	rdfs:subClassOf :fmActivity .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActSearIfcLight
+
+:fmActSearIfcLight a owl:Class ;
+	rdfs:subClassOf :fmActivity .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActSearIfcWall
+
+:fmActSearIfcWall a owl:Class ;
+	rdfs:subClassOf :fmActivity .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActStartRecord
+
+:fmActStartRecord a owl:Class ;
+	rdfs:subClassOf :fmActivity .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActStopRecord
+
+:fmActStopRecord a owl:Class ;
+	rdfs:subClassOf :fmActivity .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActTakePhoto
+
+:fmActTakePhoto a owl:Class ;
+	rdfs:subClassOf :fmActivity .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActivity
+
+:fmActivity a owl:Class .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmListOfCoor
+
+:fmListOfCoor a owl:Class .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmListOfDir
+
+:fmListOfDir a owl:Class .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmListOfIfcEle
+
+:fmListOfIfcEle a owl:Class .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmSensor
+
+:fmSensor a owl:Class .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmSpace
+
+:fmSpace a owl:Class .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmTasFireResist
+
+:fmTasFireResist a owl:Class ;
+	rdfs:subClassOf :fmTask .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmTasInWallDefect
+
+:fmTasInWallDefect a owl:Class ;
+	rdfs:subClassOf :fmTask .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmTasLightInspect
+
+:fmTasLightInspect a owl:Class ;
+	rdfs:subClassOf :fmTask .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmTask
+
+:fmTask a owl:Class .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmTrajSection
+
+:fmTrajSection a owl:Class .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#test
+
+:test a owl:Class .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#ahActAdjCamera_fire
+
+:ahActAdjCamera_fire a owl:NamedIndividual , :ahActAdjCamera .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#ahActAdjCamera_light
+
+:ahActAdjCamera_light a owl:NamedIndividual , :ahActAdjCamera .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#ahActAvoidCollide_fire
+
+:ahActAvoidCollide_fire a owl:NamedIndividual , :ahActAvoidCollide .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#ahActAvoidCollide_light
+
+:ahActAvoidCollide_light a owl:NamedIndividual , :ahActAvoidCollide .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#ahActAvoidObstacle_fire
+
+:ahActAvoidObstacle_fire a owl:NamedIndividual , :ahActAvoidObstacle .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#ahActAvoidObstacle_light
+
+:ahActAvoidObstacle_light a owl:NamedIndividual , :ahActAvoidObstacle .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#ahActOpenDoor_fire
+
+:ahActOpenDoor_fire a owl:NamedIndividual , :ahActOpenDoor .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#ahActOpenDoor_light
+
+:ahActOpenDoor_light a owl:NamedIndividual , :ahActOpenDoor .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActAsignRobot_fire
+
+:fmActAsignRobot_fire a owl:NamedIndividual , :fmActAsignRobot ;
+	:isFollowedBy :fmActSearchIfcFire_fire .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActAsignRobot_light
+
+:fmActAsignRobot_light a owl:NamedIndividual , :fmActAsignRobot ;
+	:isFollowedBy :fmActSearchIfcLight_light .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActNavigation_fire
+
+:fmActNavigation_fire a owl:NamedIndividual , :fmActNavigation ;
+	:hasConcurAction :ahActAvoidObstacle_fire , :ahActOpenDoor_fire ;
+	:isFollowedBy :fmActTakePhoto_fire .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActNavigation_light
+
+:fmActNavigation_light a owl:NamedIndividual , :fmActNavigation ;
+	:hasConcurAction :ahActAvoidObstacle_light , :ahActOpenDoor_light ;
+	:isFollowedBy :fmActTakePhoto_light .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActPathPlanA_fire
+
+:fmActPathPlanA_fire a owl:NamedIndividual , :fmActPathPlanA ;
+	:isFollowedBy :fmActNavigation_fire .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActPathPlanA_light
+
+:fmActPathPlanA_light a owl:NamedIndividual , :fmActPathPlanA ;
+	:isFollowedBy :fmActNavigation_light .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActSearchIfcFire_fire
+
+:fmActSearchIfcFire_fire a owl:NamedIndividual , :fmActSearIfcFire ;
+	:isFollowedBy :fmActPathPlanA_fire .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActSearchIfcLight_light
+
+:fmActSearchIfcLight_light a owl:NamedIndividual , :fmActSearIfcLight ;
+	:isFollowedBy :fmActPathPlanA_light .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActTakePhoto_fire
+
+:fmActTakePhoto_fire a owl:NamedIndividual , :fmActTakePhoto ;
+	:isFollowedBy :fmActNavigation_fire .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmActTakePhoto_light
+
+:fmActTakePhoto_light a owl:NamedIndividual , :fmActTakePhoto ;
+	:isFollowedBy :fmActNavigation_light .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmTasFireResist_basic
+
+:fmTasFireResist_basic a owl:NamedIndividual , :fmTasFireResist ;
+	:hasActivities :fmActAsignRobot_fire .
+# 
+# http://www.semanticweb.org/user/ontologies/2022/4/iStaTask#fmTasLightInspect_basic
+
+:fmTasLightInspect_basic a owl:NamedIndividual , :fmTasLightInspect ;
+	:hasActivities :fmActAsignRobot_light .
+# 
+# Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
